@@ -1,0 +1,362 @@
+/* main
+
+1. Side Bar 
+- navbar
+- library 
+    -options
+    -boxes
+    
+2. Main Content 
+- Sticky-Nav 
+- Cards
+
+3. Music Player
+- Album
+- Player
+- Control
+
+*/
+
+
+/* Setting css file for everything (*) for same font */
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0; /*extra spaces removed*/
+    background-color: black;
+    color: white; /*text color*/
+    overflow: hidden; /*means scroll or not; hidden: no scroll*/
+    /*for now hidden as we dont want the entire body to scroll; rather we only want main content to be scrollable*/
+}
+
+.main {
+    display: flex; /*as we'll be using flexbox*/
+    height: 100vh; /*vh: view port height: 100vh means 100% of view port height!!*/
+    padding: 0.5rem; /*to add breathing space to entire page corners*/
+}
+
+a{
+    text-decoration: none; /*to remove underline from links*/
+    color: white;
+}
+
+/* 1. SIDEBAR ***********************************************************************************************************************************************************************************************/
+.sidebar {
+    background-color: black; /*using color picker*/
+    width: 340px; /*checked on inspection*/
+    border-radius: 1rem; /*1rem = 16pix*/
+    margin-right: 0.5rem;
+}
+/* a. NAVBAR //////////////////////////////*/
+.nav {
+    background-color: #121212;
+    border-radius: 1rem;
+    display: flex; /*div comes in single line*/
+    flex-direction: column; /*to change flex direction ek ke niche ek*/
+    justify-content: center; /*usually isse content horizontally centre me aata hai, lekin direction opposite hai isliye ye vetically center hoga.*/
+    /* on inspection: padding T(8) R(12) B(8) L(12); all in pixel so convert it to rem units*/
+    height: 100px;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+}
+
+.nav-option{
+    line-height: 2.5rem; /*40px*/
+    opacity: 0.75; /*to change glow of icons on hovering*/
+    padding: 4px 12px 4px 12px;
+}
+.nav-option:hover{
+    opacity: 1;
+}
+
+/* to change size of icon and anchor tag */
+.nav-option i{
+    font-size: 1.25rem;
+}
+.nav-option a{
+    font-size: 1rem;
+    margin-left: 1rem; /*to make some space between icon and tag*/
+}
+
+/* b. LIBRARY //////////////////////////////*/
+.library{
+    background-color: #121212;
+    border-radius: 1rem;
+    height: 100%;
+    margin-top: 0.5rem; /*to create space between navbar and library*/
+    padding: 0.5rem 0.75rem;
+}
+
+/* I. Options */
+  .options{
+    display: flex;
+    justify-content: space-between; /*adds space: option and + -> signs separate to left and right */
+    align-items: center; /*vertically centers all items*/
+  }
+    .lib-option img{
+    /* same icon size as navbar icons */
+    height: 1.25rem;
+    width: 1.25rem;
+    }
+
+    .icons{
+        font-size: 1.25rem;
+        display: flex;
+    }
+      .icons i{
+        opacity: 0.7;
+        margin-right: 1rem;
+      }
+      .icons i:hover{
+        opacity: 1;
+      }
+
+/* II. Boxes */
+  .box{
+    background-color: #232323;
+    height: 8rem;
+    border-radius: 0.75rem;
+    margin: 0.75rem 0 1.75rem 0;
+    padding: 0.75rem 1rem;
+  }
+
+    .box1-l1{
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .box1-l2{
+        font-size: 0.85rem;
+        opacity: 0.9;
+    }
+
+    .badge{
+         background-color: white;
+         border: none;
+         border-radius: 100px;
+         padding: 0.25rem 1rem;
+         font-weight: 700;
+         margin-top: 0.5rem;
+         height: 2rem;
+         width: fit-content;
+    }
+        .dark-badge{
+          background-color: black;
+          color: white;
+        }
+
+/* 2. MAIN CONTENT ***********************************************************************************************************************************************************************************************/
+.main-content {
+    background-color: #121212;
+    flex: 1; /*means whatever space a fixed container is taking, the left remainignpart is given to main content*/
+    border-radius: 1rem;
+    overflow: auto; /*so that we get scroll bar only innmain content*/
+    padding: 0 1.5rem 0 1.5rem;
+}
+/* a. STICKY-NAV //////////////////////////////*/
+.sticky-nav{
+    position: sticky;
+    top: 0; /*top=0 as it should stick from top*/
+    background-color: #121212;
+    display: flex;
+    justify-content: space-between; 
+    /*this creates space btw all 5 items, but we want <> to go to left and remaiining to go to right so we'll create separate div for both of them*/ 
+    align-items: center;
+    padding: 1rem 0 1rem 0; /*to add space above the sticky nav*/
+    z-index: 10; /*creates a UPPER LAYER sp that there's no overlap with card content on scrolling*/
+}
+  .sticky-nav-left {
+    margin-left: 0.75rem;
+  }
+
+  .sticky-nav-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    .sticky-nav-right-items {
+        margin-right: 1rem;
+    }
+
+/* upon screen size<1000px premium button and > button disappears: USE MEDIA QUERIES*/
+    @media (max-width: 1000px){
+        .hide{
+            display: none;
+        }
+    }
+
+/* b. CARDS //////////////////////////////////*/
+.footer{
+    height: 300px; /*creates a footer naam ka div*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  .line{
+    width: 90%;
+    height: 50%;
+    border-top: 1px solid white;
+    opacity: 0.4;
+  }
+
+
+.cards-container{
+    display: flex;
+    flex-wrap: wrap; /*meaning if there are multiple cards then they will align themselves to next coming lines*/
+}
+
+.card{
+    background-color: #232323;
+    width: 150px;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+   .card-img{
+     width: 100%;
+     border-radius: 0.5rem;
+    } 
+    .C-title{
+        font-weight: 600;
+    }
+    .C-info{
+        font-size: 0.85rem;
+        opacity: 0.8;
+    }
+
+/* 3. MUSIC PLAYER ***********************************************************************************************************************************************************************************************/
+.music-player{
+    background-color: black;
+    /*music player fixed at bottom part*/
+    position: fixed; 
+    bottom: 0px;
+    width: 100%;
+    height: 90px; /*on inspection*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
+/* a. ALBUM //////////////////////////////*/
+.album{
+    width: 25%;
+}
+    
+    .album-parts{
+        display: flex;
+        /* flex-wrap: wrap; */
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0 0 0.5rem ;
+        cursor: pointer;
+    }
+       .album-image{
+         height: 3.5rem;
+         border-radius: 0.25rem;
+        }
+        .song-name{
+            font-weight: 600;
+            margin: 17px 1px 1px 0;
+            font-size: 14px;
+        }
+        .song-writer{
+            font-weight: 400;
+            margin: 1px 1px 17px 0; 
+            font-size: 10px;
+            opacity: 0.7;
+        }
+        .album-parts i{
+            opacity: 0.7;
+        }
+        .album-parts i:hover{
+            opacity: 1;
+        }
+
+
+/* B. PLAYER //////////////////////////////*/
+  .player{
+    width: 50%;
+  }
+    .player-controls{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        .player-controls-icon{
+         height: 1rem;
+         margin-right: 1.75rem;
+         opacity: 0.7;
+         cursor: pointer;
+        }
+        .player-controls-icon:hover{
+            opacity: 1;
+        }
+
+    .player-bar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        .time-bar{
+            width: 70%;
+            appearance: none; /*by default orginal styling removed and we get a raw form!*/
+            background-color: transparent;
+            cursor: pointer; /*cursor changed to hand pointer*/
+        }
+            .time-bar::-webkit-slider-runnable-track{
+              background-color: #ddd;
+              border-radius: 100px;
+              height: 0.2rem; /*thickness of track*/
+            }
+            .time-bar::-webkit-slider-thumb{
+                appearance: none;
+                height: 1rem;
+                width: 1rem;
+                background-color: #1bd760;
+                border-radius: 50%; /*rectangle changed to circle*/
+                margin-top: -6px; /*thumb shifts to top i.e center of track*/
+            }
+
+/* C. CONTROL //////////////////////////////*/
+  .control{
+    width: 25%;
+  } 
+
+  .control-parts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+  } 
+      /* CONTROL ICONS */
+      .controls-icon{
+        height: 1.25rem;
+        margin-right: 0.5rem;
+        opacity: 0.7;
+        cursor: pointer;
+      }
+      .controls-icon:hover{
+        opacity: 1;
+      }
+       
+      /* VOLUME BAR */
+      .control-bar{
+        display: flex;
+      }
+        .volume-bar{
+          width: 80%;
+          appearance: none; /*by default orginal styling removed and we get a raw form!*/
+          background-color: transparent;
+          cursor: pointer; /*cursor changed to hand pointer*/
+        } 
+           .volume-bar::-webkit-slider-runnable-track{
+             background-color: #ddd;
+             border-radius: 100px;
+             height: 0.2rem; /*thickness of track*/
+            }
+            .volume-bar::-webkit-slider-thumb{
+             appearance: none;
+             height: 1rem;
+             width: 1rem;
+             background-color: #1bd760;
+             border-radius: 50%; /*rectangle changed to circle*/
+             margin-top: -7px; /*thumb shifts to top i.e center of track*/
+            }

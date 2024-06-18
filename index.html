@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- 1. Web page name and icon -->
+    <link rel="icon" href="./images/logo.png">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css">
+<!-- 3. connect to google apis which supply fonts: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- 2. create 3 divsions as main content, music player and a side bar -->
+    <div class="main">
+    <!----------------------------------------------------------------------------------------------------------------------->
+
+    <!-- I. SIDEBAR --------------------------------------------------------------------------------------------------------->
+        <!-- 4. Dividing side bar into: navbar and library and adding comps in -->
+        <div class="sidebar">
+
+            <!-- NAVBAR -->
+            <div class="nav">
+
+                <!-- a. Home -->
+                <div class="nav-option" style="opacity: 1">
+                    <i class="fa-solid fa-house"></i> <!-- icons taken from fontawesome website -->
+                    <a href="#">Home</a>
+                </div>
+
+                <!-- b. Search -->
+                    <div class="nav-option">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="#">Search</a>
+                </div>
+
+            </div>
+
+            <!-- LIBRARY -->
+            <div class="library">
+
+                <!-- a. Options -->
+                <div class="options">
+                    <div class="lib-option nav-option"> <!--nav-option later added to apply same stylling to "Your Library option"-->
+                        <img src="./images/library_icon.png">
+                        <a href="#">Your Library</a>
+                    </div>
+
+                    <div class="icons">
+                        <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- b. Boxes -->
+                <div class="lib-box">
+                    <div class="box">
+                        <!-- div of box1- line 1 & 2 was later changed to paragraph to avoid adding space as para directly has some default space btw. -->
+                        <p class="box1-l1">Create your first playlist</p> <!--box1 line 1 and line 2-->
+                        <p class="box1-l2">It's easy, we'll help you</p>
+                        <button class="badge">Create playlist</button>
+                    </div>
+
+                    <div class="box">
+                        <!-- div of box2- line 1 & 2 was later changed to paragraph to avoid adding space as para directly has some default space btw. -->
+                        <p class="box1-l1">Let's find some podcasts to follow</p> <!--box1 line 1 and line 2-->
+                        <p class="box1-l2">We'll keep you updated on new episodes</p>
+                        <button class="badge">Browse podcasts</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    <!----------------------------------------------------------------------------------------------------------------------->
+
+    <!-- II. MAIN CONTENT --------------------------------------------------------------------------------------------------->
+        <!-- 5. Dividing main content into: sticky-nav and cards -->
+        <div class="main-content">
+
+            <!-- STICKY-NAV -->
+            <div class="sticky-nav">
+
+                <!-- in css: space btw creates space btw all 5 items, but we want <> to go to left and remaiining to go to right so we'll create separate div for both of them -->
+                <div class="sticky-nav-left">
+                    <img src="./images/backward_icon.png">
+                    <img src="./images/forward_icon.png" class="hide"> <!--hide class created for <1000px screen size-->
+                </div>
+                <div class="sticky-nav-right">
+                    <!-- 'sticky-nav-right-items' class is later added to create space btw icons uniformly -->
+                    <button class="badge sticky-nav-right-items hide">Explore Premium</button> <!--hide class created for <1000px screen size-->
+                    <!-- class dark-badge added as it's black in color compared to other badges -->
+                    <button class="badge sticky-nav-right-items dark-badge"><i class="fa-regular fa-circle-down" style="margin-right: 5px"></i>Install App</button> <!--inline style added to install icon-->
+                    <i class="fa-regular fa-user sticky-nav-right-items"></i>
+                </div>
+                
+            </div>
+
+            <!-- CARDS -->
+
+            <!-- SECTION I -->
+            <h2>Recently Played</h2>
+            <!-- a CONTAINER created to separate out cards in diff containers-->
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="./images/card1img.jpeg" class="card-img">
+                        <p class="C-title">Top 50 - Global</p>
+                        <p class="C-info">Your daily update of the most played...</p>
+                    </div>
+                </div>
+
+            <!-- SECTION II -->
+            <h2>Trending now near you</h2>
+            <!-- a CONTAINER created to separate out cards in diff containers-->
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="./images/card2img.jpeg" class="card-img">
+                        <p class="C-title">Top 50 - Global</p>
+                        <p class="C-info">Your daily update of the most played...</p>
+                    </div>
+                    <div class="card">
+                        <img src="./images/card3img.jpeg" class="card-img">
+                        <p class="C-title">Top 50 - Global</p>
+                        <p class="C-info">Your daily update of the most played...</p>
+                    </div>
+                    <div class="card">
+                        <img src="./images/card4img.jpeg" class="card-img">
+                        <p class="C-title">Top 50 - Global</p>
+                        <p class="C-info">Your daily update of the most played...</p>
+                    </div>
+                </div>
+                
+            <!-- SECTION III -->
+            <h2>Featured Charts</h2>
+            <!-- a CONTAINER created to separate out cards in diff containers-->
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="./images/card5img.jpeg" class="card-img">
+                        <p class="C-title">Top 50 - Global</p>
+                        <p class="C-info">Your daily update of the most played...</p>
+                    </div>
+                    <div class="card">
+                        <img src="./images/card6img.jpeg" class="card-img">
+                        <p class="C-title">Top Songs - India</p>
+                        <p class="C-info">Your weekly update of the most played...</p>
+                    </div>
+                    <div class="card">
+                        <img src="./images/card1img.jpeg" class="card-img">
+                        <p class="C-title">Top 50 - Global</p>
+                        <p class="C-info">Your daily update of the most played...</p>
+                    </div>
+                </div>
+
+        <!--Now to creater a footer line at bottom: --> 
+        <div class="footer">
+            <div class="line"></div>
+        </div>   
+
+        </div>
+    <!----------------------------------------------------------------------------------------------------------------------->
+
+    <!-- III. MUSIC PLAYER -------------------------------------------------------------------------------------------------->
+
+        <div class="music-player">
+            <!-- # ALBUM -->
+            <div class="album">
+
+
+                <div class="album-parts">
+                    <img src="./images/card3img.jpeg" class="album-image">
+
+                    <div class="song-parts">
+                        <p class="song-name">Mere Paas Tum Ho</p>
+                        <p class="song-writer">Silent Ocean, Arijit Singh, Shreya Goshal...</p>
+                    </div>
+                    
+                    <i class="fa-regular fa-square-plus" style="font-size: 1.25rem;"></i>
+                </div>
+
+            </div>
+
+            <!-- # PLAYER -->
+            <div class="player">
+
+                <div class="player-controls">
+                    <img src="./images/player_icon1.png" class="player-controls-icon">
+                    <img src="./images/player_icon2.png" class="player-controls-icon">
+                    <img src="./images/player_icon3.png" class="player-controls-icon" style="opacity: 1; height: 2rem;"> <!--Bigger play button at center-->
+                    <img src="./images/player_icon4.png" class="player-controls-icon">
+                    <img src="./images/player_icon5.png" class="player-controls-icon">
+                </div>
+
+                <div class="player-bar">
+                    <span class="current-time">00:00</span>
+                    <input type="range" min="0" max="100" class="time-bar" step="1"> <!--step is set to 1 to change one value at a time-->
+                    <span class="total-time">3:33</span>
+                </div>
+
+            </div>
+            <!-- # CONTROLS -->
+            <div class="controls">
+
+                <div class="control-parts">
+                    <img src="./images/controls_1.png" class="controls-icon">
+                    <img src="./images/controls_2.png" class="controls-icon">
+                    <img src="./images/controls_3.png" class="controls-icon">
+                    <img src="./images/controls_4.png" class="controls-icon">
+                    <img src="./images/controls_5.png" class="controls-icon">
+
+                    <div class="control-bar">
+                        <input type="range" min="0" max="100" class="volume-bar" step="1">
+                    </div>
+                    
+                    <img src="./images/controls_6.png" class="controls-icon">
+                    <img src="./images/controls_7.png" class="controls-icon">
+                </div>
+                
+
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>
